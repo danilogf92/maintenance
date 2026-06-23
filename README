@@ -1,0 +1,60 @@
+## Danilo Implementación
+
+Diagramas implementación
+
+### Premium Partners
+
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
+
+### Commands
+```text
+php artisan migrate
+php artisan migrate:fresh
+php artisan db:seed
+
+php artisan make:model ModelName -m
+
+```
+
+# Danilo Implementación
+
+| Target | Manintenance |
+| ----------------- | ----- |
+
+## Filament Install 
+
+```text
+composer require filament/filament:"~5.0" 
+composer require filament/filament
+php artisan filament:install --panels
+php artisan make:filament-user
+php artisan vendor:publish --tag=filament-config
+```
+
+## Create Resources
+
+```text
+php artisan make:filament-resource User
+php artisan make:filament-resource Customer
+```
+
+## Step 3
+
+```text
+# Create proxi server
+npx http-server ./web -P http://192.168.4.1
+```
+
+## References
+
+- [Official ESP-IDF Documentation](https://docs.espressif.com/projects/esp-idf/en/latest/)
+- [C++ Official Documentation](https://en.cppreference.com/w/)
+- Tutorials and examples from the ESP32 community
+- Additional resources on C++ and embedded programming
