@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\Users\Tables;
+namespace App\Filament\Resources\DeviceModels\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class UsersTable
+class DeviceModelsTable
 {
     public static function configure(Table $table): Table
     {
@@ -17,19 +17,18 @@ class UsersTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email address')
+                TextColumn::make('type')
                     ->searchable(),
-                IconColumn::make('is_active')
-                    ->boolean(),
-                TextColumn::make('country')
+                TextColumn::make('expected_lifespan')
+                    ->numeric()
+                    ->sortable(),
+                // TextColumn::make('brand_id')
+                //     ->numeric()
+                //     ->sortable(),
+
+                TextColumn::make('brand.name')
                     ->searchable(),
-                TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable(),
-                TextColumn::make('two_factor_confirmed_at')
-                    ->dateTime()
-                    ->sortable(),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -44,6 +43,7 @@ class UsersTable
             ])
             ->recordActions([
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

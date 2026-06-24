@@ -20,7 +20,7 @@ php artisan migrate:fresh
 php artisan db:seed
 
 php artisan make:model ModelName -m
-
+php artisan make:enum Country
 ```
 
 # Danilo Implementación
@@ -38,11 +38,27 @@ php artisan make:filament-user
 php artisan vendor:publish --tag=filament-config
 ```
 
+## Create Models
+
+```text
+php artisan make:model Brand -m
+php artisan make:model DeviceModel -m
+php artisan make:model Equipment -m
+php artisan make:model Customer -m
+php artisan make:model Manual -m
+
+```
+
 ## Create Resources
 
 ```text
 php artisan make:filament-resource User
+php artisan make:filament-resource Brand
+php artisan make:filament-resource DeviceModel
+php artisan make:filament-resource Equipment
 php artisan make:filament-resource Customer
+php artisan make:filament-resource Manual
+php artisan storage:link
 ```
 
 ## Step 3

@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Filament\Resources\Users\Tables;
+namespace App\Filament\Resources\Brands\Tables;
 
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class UsersTable
+class BrandsTable
 {
     public static function configure(Table $table): Table
     {
@@ -17,19 +19,27 @@ class UsersTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email address')
+                TextColumn::make('slug')
                     ->searchable(),
-                IconColumn::make('is_active')
-                    ->boolean(),
                 TextColumn::make('country')
                     ->searchable(),
-                TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable(),
-                TextColumn::make('two_factor_confirmed_at')
-                    ->dateTime()
-                    ->sortable(),
+                TextColumn::make('link')
+                    ->searchable(),
+                TextColumn::make('support_email')
+                    ->searchable(),
+                TextColumn::make('warranty_phone')
+                    ->searchable(),
+
+
+                IconColumn::make('is_active')
+                    ->boolean(),
+
+                ImageColumn::make('photo')
+                    //->circular()
+                    ->square()
+                    ->stacked()
+                    ->ring(5),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -44,6 +54,7 @@ class UsersTable
             ])
             ->recordActions([
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
